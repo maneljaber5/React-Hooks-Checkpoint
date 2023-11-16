@@ -119,15 +119,16 @@ function App() {
       rating: 5,
     },
   ])
-  
+  const [text, settext] = useState("")
+  const [rate, setrate] = useState("")
   return (
    <>
-   <Navbarr />
+   <Navbarr settext={settext} setrate={setrate}/>
 
    <StrictMode>
       <PlayerComponent />
    </StrictMode>
-   <MovieList movies={movies} />
+   <MovieList movies={movies} setmovies={setmovies} text={text} rate={rate}/>
    <Footer />
    
    </>

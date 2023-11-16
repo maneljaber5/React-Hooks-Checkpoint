@@ -2,14 +2,15 @@ import React from 'react'
 import MovieCard from './MovieCard'
 import AddMovie from './AddMovie'
 
-function MovieList({movies}) {
+function MovieList({movies , setmovies , text ,rate}) {
   return (
     <>
     <div className='add'>
-    <AddMovie />
+    <AddMovie movies={movies} setmovies={setmovies}/>
     </div>
     <div className='container'>
-        {movies.map((el) => <MovieCard movie = {el} />)}
+        {movies.filter((el)=>el.name.toLowerCase().includes(text.toLowerCase()) && el.rating>=rate)
+        .map((el) => <MovieCard movie = {el} />).reverse()}
     </div>  
     </>
   )

@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ReactStars from "react-rating-stars-component";
-function Navbarr() {
+function Navbarr({settext, setrate }) {
+  
+  
   return (
     <div>
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" settext={settext} setrate>
     <Container fluid>
       <Navbar.Brand href="#">My Movie </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
@@ -25,7 +27,7 @@ function Navbarr() {
         <ReactStars
     count={5}
   
- 
+ onChange={(newRating)=>setrate(newRating)}
     size={24}
     activeColor="#dd2476"
   />
@@ -35,6 +37,7 @@ function Navbarr() {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            onChange={(e)=> settext(e.target.value)}
           />
           <Button variant="outline-success">Search</Button>
         </Form>
