@@ -2,6 +2,7 @@ import React from 'react'
 import './MovieCard.css';
 import Card from 'react-bootstrap/Card';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 function MovieCard({movie}) {
   return (
@@ -23,6 +24,7 @@ function MovieCard({movie}) {
        
   //     </Card.Body>
   //   </Card>
+  <Link to={`/trailer/${movie.id}`}  style={{textDecoration:"none", color:"#dd2476"}}>
   <div className="card transition">
         <h2 className="transition">{movie.name}</h2>
         <p>{movie.description} </p>
@@ -37,7 +39,9 @@ function MovieCard({movie}) {
     size={24}
     activeColor="#dd2476"
   />
+  
       </div>
+      </Link>
   )
 }
 
